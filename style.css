@@ -61,7 +61,7 @@ header{
 }
 
 .logo img{
-    height:40px;
+    height:65px;
     width:auto;
     object-fit:contain;
     transition:.3s;
@@ -455,4 +455,11 @@ footer{
         height:55px;
         font-size:1.5rem;
     }
+}
+@media(max-width:768px){
+
+    .logo img{
+        height:50px;
+    }
+
 }
