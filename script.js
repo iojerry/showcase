@@ -1,7 +1,7 @@
 // =========================
 // MOBILE MENU TOGGLE
 // =========================
-
+const SITE_VERSION = "1.0.1";
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
@@ -151,57 +151,59 @@ loader.style.display="none";
 
 });
 
-
-
-const prices = {
-"100g": 79,
-"200g": 149,
-"500g": 329,
-"1kg": 599
-};
-
-const priceElement =
-document.getElementById("selectedPrice");
-
-const weightElement =
-document.getElementById("selectedWeight");
+function showUpdateToast(){
 
 document
-.querySelectorAll('input[name="size"]')
-.forEach(radio => {
-
-radio.addEventListener("change", () => {
-
-const size = radio.value;
-updateTotal();
-priceElement.textContent =
-`₹${prices[size]}`;
-
-weightElement.textContent =
-`${size} Pack`;
-
-
-
-});
-
-});
-function updateTotal(){
-
-const size =
-document.querySelector(
-'input[name="size"]:checked'
-).value;
-
-const qty =
-parseInt(
-document.getElementById("qtySelect").value
-);
-
-const total =
-prices[size] * qty;
-
-document.getElementById(
-"totalPrice"
-).textContent = `₹${total}`;
+.getElementById("updateToast")
+.classList.add("show");
 
 }
+document
+.getElementById("updateNowBtn")
+.addEventListener(
+"click",
+()=>{
+
+window.location.reload(true);
+
+}
+);
+
+window.addEventListener(
+"load",
+()=>{
+
+const savedVersion =
+localStorage.getItem(
+"siteVersion"
+);
+
+if(savedVersion !== SITE_VERSION){
+
+showUpdateToast();
+
+}
+
+});
+
+document
+.getElementById(
+"updateNowBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+localStorage.setItem(
+"siteVersion",
+SITE_VERSION
+);
+
+document
+.getElementById(
+"updateToast"
+)
+.classList.remove("show");
+
+});
+
