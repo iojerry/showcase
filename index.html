@@ -37,6 +37,15 @@ content="Tavya Foods">
 <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" type="image/png" href="images/logo1.jpg">
 <link rel="apple-touch-icon" href="images/logo1.jpg">
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "9594731b-9564-487d-a729-e94b69e44cda",
+    });
+  });
+</script>
 </head>
 
 <body>
