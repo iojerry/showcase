@@ -43,9 +43,10 @@ const priceSection = `
 const infoSection = `
 <div class="product-info">
   <h1>${product.name}</h1>
-  <p class="description">
-    ${product.description}
-  </p>
+  <p
+class="description"
+id="productDescription">
+</p>
 </div>
 `;
 
@@ -215,6 +216,75 @@ function showToast(message) {
 
 
 function initializeProductPage() {
+
+  const descElement =
+document.getElementById(
+"productDescription"
+);
+
+const maxLength = 100;
+
+let expanded = false;
+
+function renderDescription(){
+
+if(
+expanded ||
+product.description.length <= maxLength
+){
+
+descElement.innerHTML =
+
+`${product.description}
+
+<span
+class="show-more-link">
+
+Show Less
+
+</span>`;
+
+}else{
+
+descElement.innerHTML =
+
+`${product.description.slice(
+0,
+maxLength
+)}...
+
+<span
+class="show-more-link">
+
+Show More
+
+</span>`;
+
+}
+
+const link =
+document.querySelector(
+".show-more-link"
+);
+
+if(link){
+
+link.addEventListener(
+"click",
+()=>{
+
+expanded =
+!expanded;
+
+renderDescription();
+
+});
+
+}
+
+}
+
+renderDescription();
   
   const stickyPrice =
     document.getElementById(
