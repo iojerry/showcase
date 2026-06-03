@@ -531,7 +531,7 @@ grid-template-columns:1fr;
 
 .nav-links{
 position:absolute;
-top:85px;
+top:75px;
 left:-100%;
 width:100%;
 background:#0b0b0b;
@@ -1040,7 +1040,16 @@ color:#bdbdbd;
 line-height:1.8;
 margin-bottom:12px;
 }
+.show-more-link{
+color:var(--gold);
+font-weight:600;
+cursor:pointer;
+margin-left:4px;
+}
 
+.show-more-link:hover{
+text-decoration:underline;
+}
 .size-options{
 display:flex;
 flex-wrap:wrap;
