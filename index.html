@@ -6,6 +6,8 @@
 <title>Tavya Foods | Pure Spices. Authentic Taste.</title>
 
 <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#121212">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -529,6 +531,11 @@ target="_blank">
 <script src="js/products.js"></script>
 <script src="js/products-page.js"></script>
 <script src="script.js"></script>
+    <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+    </script>
 
 </body>
 </html>
